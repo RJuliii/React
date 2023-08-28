@@ -1,7 +1,7 @@
 function Titulo(props) { // prop 
     console.log(props)
     return (
-        <div>
+        <div className="title">
             <h1>
                 {props.titulo}
             </h1>

@@ -1,9 +1,9 @@
 import Titulo from "../Titulo/Titulo"
 
-const Footer = () =>    <footer>
+const Footer = () =>    <footer className="footer">
                             <Titulo titulo='RODRIGUEZ Julian' subtitulo='React CoderHouse'  />
                             <h3>
-                                (falta push de bootstrap)
+                                Primer Pre entrega
                             </h3>
                         </footer>
 

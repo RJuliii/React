@@ -1,22 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from 'react';
 
-import Navbar from './components/Navbar/Navbar'
+import NavBar from './components/Navbar';
 import Titulo from './components/Titulo/Titulo'
 import Footer from './components/Footer/Footer'
 
-import './App.css'
-
+// import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Navbar()
 
 function App() { /// componete es una función (que comienza con Mayúscula) y retorna jsx
-    const [count, setCount] =  useState(0) //hook
+    const [count, setCount] =  useState(0)
 
     // console.log(estado)
-    const titulo = 'Planes ALTRENO GYM'
-    const subtitulo = 'Reserva tu combo aqui'
+    const titulo = 'ECommerce Altreno GYM'
+    const subtitulo = 'Reserva tus planes Aqui'
     // let count = 0
 
     // const addCount = () => {
@@ -25,7 +23,7 @@ function App() { /// componete es una función (que comienza con Mayúscula) y r
     //     // count ++
     //     // count += 1
     // }
-
+    
     const addCount = () => {
         setCount(count + 1) // estado = estado +1  
         // estado + 1 -> 0 + 1
@@ -33,17 +31,17 @@ function App() { /// componete es una función (que comienza con Mayúscula) y r
     }
 
     return (
-        <div>
+        <div className='body'>
             {/* { Navbar( { titulo: '', subtitulo: ''} ) } */}
             {/* Elemento */}
-            <Navbar /> 
+            <NavBar /> 
 
             <Titulo titulo={titulo} subtitulo={subtitulo} />
 
-            <label>
+            <label >
                 <strong>{ count }</strong>
             </label>
-            <button onClick={addCount}> + 1 </button>
+            <button onClick={addCount} className='btnCount'> + 1 </button>
             <Footer />
             
         </div>
