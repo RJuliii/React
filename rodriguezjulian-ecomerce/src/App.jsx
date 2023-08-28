@@ -4,7 +4,7 @@ import NavBar from './components/Navbar';
 import Titulo from './components/Titulo/Titulo'
 import Footer from './components/Footer/Footer'
 
-// import './App.css'
+import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Navbar()
