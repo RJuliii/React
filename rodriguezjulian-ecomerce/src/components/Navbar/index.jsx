@@ -1,22 +1,25 @@
+import { Link, NavLink } from 'react-router-dom';
+
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import "./navbar.css"
 import CartWidget from './CartWidget/CartWidget';
+
+import "./navbar.css"
 
 const NavBar = () => {
     return (
       <Navbar className="navBar">
         <Container>
-          <Navbar.Brand href="#home">ALTRENO POINT</Navbar.Brand>
+          <Link to="/" className='NavLink'>ALTRENO POINT</Link>
           <Nav className="me-auto">
-            <Nav.Link href="#planes">Planes</Nav.Link>
-            <Nav.Link href="#promociones">Promociones</Nav.Link>
-            <Nav.Link href="#nosotros">Nosotros</Nav.Link>
+            <NavLink to="/category/zapatillas" className={({isActive})=> isActive ? "NavOn" : "NavOff"}>Zapatillas</NavLink>
+            <NavLink to="/category/botines" className={({isActive})=> isActive ? "NavOn" : "NavOff"}>Botines</NavLink>
+            <NavLink to="/category/remeras" className={({isActive})=> isActive ? "NavOn" : "NavOff"}>Remeras</NavLink>
           </Nav>
-          <Nav.Link href='#cart'>
+          <NavLink  className='NavLink'>
             Carrtio<CartWidget />
-          </Nav.Link>
+          </NavLink>
         </Container>
       </Navbar>
   );

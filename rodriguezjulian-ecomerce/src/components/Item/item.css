@@ -1,0 +1,36 @@
+.card{
+    background-color: white;
+}
+
+.card-body{
+    background-color: white;
+
+}
+
+p{
+    color: rgb(2, 2, 2);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.card-footer{
+    background-color: white;
+}
+
+.card-btn{
+    font-size: 15px;
+    width: 150px;
+    padding: 5px;
+    border: 1px solid;
+    background-color: rgba(255, 255, 255, 0.774);
+    border-color: rgb(119, 119, 117);
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+}
+
+.card-btn:hover{
+    background-color: rgb(255, 255, 255);
+    font-weight: bold;
+    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.377);
+}

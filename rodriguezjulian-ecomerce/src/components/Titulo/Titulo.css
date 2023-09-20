@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap');
+
+.container-title{
+    background-color: white;
+    margin: 30px;
+    height: 100%;
+    padding: 10px;
+    font-family: 'Holtwood One SC', serif;
+  }
+
+  .title{
+    padding: 10px;
+    margin: 0px;
+    color: black;
+    font-size: 40px;
+
+  }
+
+  .subtitle{
+    padding: 0px;
+    margin: 0px;
+    color: black;
+    font-size: 25px;
+  }
+
+  

@@ -1,0 +1,11 @@
+.item-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat (10, 200px);
+    grid-gap: 20px;
+    margin: 30px;
+  }
+  
+  .load{
+    color:white
+  }

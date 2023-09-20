@@ -1,0 +1,22 @@
+.detail{
+    background-color: white;
+    width: 500px;
+    height: 100%;
+    padding: 10px;
+}
+.title-detail{
+    background-color: red;
+    width: 500px;
+    margin-bottom: 0em!important;
+    margin-top: 30px;
+    color: white;
+}
+.img-detail{
+    width: 500px;
+
+}
+.count-detail{
+    background-color: red;
+    width: 500px;
+    margin-bottom: 30px;
+}

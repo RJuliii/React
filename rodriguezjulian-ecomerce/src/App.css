@@ -1,28 +1,54 @@
 *{
   box-sizing: border-box;
-  padding: 0 ;
-  margin: 0;
-  text-align: center;
+  padding: 0px ;
+  margin: 0px;
 }
 
 #root {
   max-width: 100%;
-}
-.body{
-  height: 100vh;
-  background-color: aqua;
-}
-
-.btnCount{
   background-color: black;
-  color: white;
-}
-.title{
-  background-color: grey;
-  height: 400px;
-  margin: 0;
 }
 
-.footer{
-  background-color: aqua;
+
+.btn-count{
+  font-size: 15px;
+  padding: 5px;
+  border: 1px solid;
+  background-color: rgba(255, 255, 255, 0.774);
+  border-color: rgb(119, 119, 117);
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  width: 40px;
+}
+
+.btn-count:hover{
+  background-color: rgb(255, 255, 255);
+  box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.377);
+}
+
+.btn-count_add{
+  font-size: 15px;
+  padding: 5px;
+  border: 1px solid;
+  background-color: rgba(255, 255, 255, 0.774);
+  border-color: rgb(119, 119, 117);
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  width: 170px;
+  margin-bottom: 5px;
+}
+.btn-count_add:hover{
+  background-color: rgb(255, 255, 255);
+  box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.377);
+}
+
+.count{
+  font-size: 15px;
+  padding: 5px;
+  width: 80px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.774);
+  border-color: rgb(119, 119, 117);
+  border: 1px solid;
+  margin:5px;
 }
