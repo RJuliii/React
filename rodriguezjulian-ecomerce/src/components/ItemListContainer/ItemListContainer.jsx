@@ -3,6 +3,7 @@ import { mFetch } from '../../utils/mockFetch'
 import ItemList from '../ItemList/ItemList'
 import Titulo from "../Titulo/Titulo"
 import { useParams } from 'react-router-dom'
+import { collection, doc, getDoc, getDocs, getFirestore, limit, orderBy, query, where } from 'firebase/firestore'
 
 const ItemListContainer = () => {
     const [ products, setProduct ] = useState([])
@@ -11,57 +12,23 @@ const ItemListContainer = () => {
     
     useEffect(()=>{
       if (cid) {
-        mFetch()
-        .then((respuesta) => setProduct( respuesta.filter(product => cid === product.category )))
-        .catch((err) => console.log(err))
+        const db = getFirestore()
+        const queryCollection = collection(db, "products")
+        const queryFilter = query(queryCollection, where("category", "==", cid))
+        getDocs(queryFilter)
+        .then(resp => setProduct(resp.docs.map(prod => ({id: prod.id, ...prod.data()}))))
+        .catch(err => console.log(err))
         .finally(()=> setLoading(false))
       } else {
-        mFetch()
-        .then((respuesta) => setProduct(respuesta))
-        .catch((err) => console.log(err))
+        const db = getFirestore()
+        const queryCollection = collection(db, "products")
+        getDocs(queryCollection)
+        .then(resp => setProduct(resp.docs.map(prod => ({id: prod.id, ...prod.data()}))))
+        .catch(err => console.log(err))
         .finally(()=> setLoading(false))
       }
     }, [cid])  
 
-    //creo mi propia base de datos
-
-    // useEffect(() =>{
-    //   const url = "https://pokeapi.co/api/v2/ability/?limit=20&offset=20"
-    //   fetch(url, {
-    //     method: "POST",
-    //     headers: {
-    //       "atuhorization":"Bearer alasfdafjaskfslakf"
-    //     },
-    //     body: JSON.stringify([{id:1, name:"producto 1"}])
-    //   })
-    //   .then(resp => resp.json())
-    //   .then(resp => console.log(resp.results))
-    // }, []) Mandar algun post de algun formulario
-
-
-    // async y await
-    // const [pokemons, setPokemons] = useState([])
-    // const getFetch = async () => {
-    //   try{
-    //   const url = "https://pokeapi.co/api/v2/ability/?limit=20&offset=20";
-    //   const pokesJson = await fetch(url);
-    //   const pokes = await pokesJson.json();
-    //   console.log(pokesJson);
-    //   setPokemons(pokes.results);
-    //   } catch (error) {
-    //     console.log(error)
-    //   }
-    // }
-
-
-    // useEffect(() =>{
-    //   const url = "https://pokeapi.co/api/v2/ability/?limit=20&offset=20"
-    //   fetch(url)
-    //   .then(resp => resp.json())
-    //   .then(resp => setProduct(resp.results))
-    //   .catch((err) => console.log(err))
-    //   .finally(()=> setLoading(false))
-    // }, [])
 
     console.log(products)
   return (

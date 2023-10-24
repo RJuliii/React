@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom"
 import ItemCount from "../../Counter/ItemCount"
-
 import "./ItemDetail.css"
 import { useState } from "react"
 import { useCartContext } from "../../context/CArtContext"
@@ -9,10 +8,12 @@ import { useCartContext } from "../../context/CArtContext"
 const ItemDetail = ({product}) => {
     const [isCounter, setIsCounter] = useState(true)
     const {addProduct} = useCartContext()
+
     const onAdd =(quantity) => {
         addProduct({...product, quantity})
         setIsCounter(false)
     }
+    
   return (
     <div>
         <center className="col">
