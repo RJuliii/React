@@ -2,12 +2,14 @@ import { createContext, useContext, useState } from "react";
 import Swal from "sweetalert2";
 import React from "react";
 import { toast } from "react-toastify";
-import { collection, getFirestore, addDoc, updateDoc, doc, writeBatch, getDoc } from "firebase/firestore"
+import { getFirestore, doc, writeBatch, getDoc } from "firebase/firestore"
+
 
 const CartContext = createContext([]);
 
-export const useCartContext = () => useContext(CartContext);
+export const useCartContext = () => useContext(CartContext)
 export const CartContextProvider = ({ children }) => {
+  
   const [cartList, setCartList] = useState([]);
 
   const isProduct = (id) => cartList.findIndex((prod) => prod.id === id);
@@ -22,18 +24,15 @@ export const CartContextProvider = ({ children }) => {
     }
   };
 
-  // Eliminar por producto
   const eliminarProducto = (pid) =>
     setCartList(cartList.filter((prod) => prod.id !== pid));
 
-  // mostrar la cantidad de productos total que tienen
   const cantidadTotal = () =>
     cartList.reduce(
       (cantidadTotal, objProduct) => (cantidadTotal += objProduct.quantity),
       0
     );
 
-  // precio total (()=>{}, inicializador de precio total)
   const precioTotal = () =>
     cartList.reduce(
       (precioTotal, objProduct) =>
@@ -55,7 +54,9 @@ export const CartContextProvider = ({ children }) => {
     setCartList([]);
   };
 
-  const confirmarCompra = () => {
+  const confirmarCompra = async (evt) => {
+    evt.preventDefault()
+
     Swal.fire({
       title: "¿Desea confirmar la compra?",
       background: "rgba(255, 255, 255, 0.80)",
@@ -65,13 +66,9 @@ export const CartContextProvider = ({ children }) => {
       denyButtonText: "Cancelar",
       confirmButtonColor: "green",
     }).then((result) => {
+      const order = {};
+      order.buyer = "dataForm"
       if (result.isConfirmed) {
-        const order = {};
-        order.buyer = {
-          name: "Julian",
-          phone: "123456789",
-          email: "julianrdz@gmail.com",
-        };
         order.items = cartList.map((prod) => {
           return {
             id: prod.id,
@@ -79,6 +76,7 @@ export const CartContextProvider = ({ children }) => {
             price: prod.price,
             quantity: prod.quantity,
           };
+          
         });
         order.total = precioTotal();
         const queryDB = getFirestore();

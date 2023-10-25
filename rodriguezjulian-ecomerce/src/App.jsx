@@ -17,13 +17,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 // Navbar()
 
-function App() { /// componete es una función (que comienza con Mayúscula) y retorna jsx
+function App() {
     return (
 
         <BrowserRouter>
             <CartContextProvider>
-            {/* { Navbar( { titulo: '', subtitulo: ''} ) } */}
-            {/* Elemento */}
                 <NavBar />
                 <Routes>
                     <Route path="/" element={<ItemListContainer />}/>
