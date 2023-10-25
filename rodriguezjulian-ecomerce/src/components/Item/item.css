@@ -1,9 +1,11 @@
 .card{
     background-color: white;
+    border-radius: 0px!important;
 }
 
 .card-body{
     background-color: white;
+    padding: 0!important;
 
 }
 

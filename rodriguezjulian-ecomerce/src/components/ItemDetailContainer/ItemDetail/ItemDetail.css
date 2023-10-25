@@ -12,8 +12,8 @@
     color: white;
 }
 .img-detail{
+    height: 500px;
     width: 500px;
-
 }
 .count-detail{
     background-color: red;

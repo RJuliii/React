@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { mFetch } from '../../utils/mockFetch'
 import ItemList from '../ItemList/ItemList'
 import Titulo from "../Titulo/Titulo"
 import { useParams } from 'react-router-dom'
-import { collection, doc, getDoc, getDocs, getFirestore, limit, orderBy, query, where } from 'firebase/firestore'
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
 
 const ItemListContainer = () => {
     const [ products, setProduct ] = useState([])

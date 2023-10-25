@@ -6,7 +6,7 @@ function Item({ product }) {
   return (
     <div className="card">
       <div className="card-body">
-        <img className="w-100 card-img-top" src={product.imageUrl} alt="imagen zapatilla nike" />
+        <img className="img-detail w-100" src={product.imageUrl} alt="imagen prenda" />
         <p>{product.name}</p>
         <p>${product.price}</p>
       </div>
